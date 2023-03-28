@@ -1,2 +1,2 @@
 # estadistica_resueltos
-Guias resueltas de la materia Introducción a la estadística y a la ciencia de datos. Lenguaje de programación: R
+Guias resueltas de la materia Introducción a la Estadística y a la Ciencia de datos.
