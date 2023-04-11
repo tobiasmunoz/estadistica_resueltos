@@ -154,5 +154,27 @@ prob_emv4
 
 # Ejercicio 5
 
+cpu <- scan('cpu.txt')
+
+# Estimacion de la ventana de Silverman, utilizando el nucleo gaussiano.
+
+hsil <- 1.06*min(sd(cpu),IQR(cpu)/1.349)*length(cpu)^(-1/5)
+
+plot(density(cpu, kernel = 'gaussian'), col = 'blue') # Con ventana por default
+lines(density(cpu, kernel = 'gaussian', bw = hsil), col = 'green') # Con ventana dada por Silverman
+
+# Conclusion: Son casi iguales
+
 # Ejercicio 6
+
+debernardi <- read.csv('debernardi.csv')
+
+# Calculo de la ventana de Silverman segun los niveles de  la variable DIAGNOSIS. 
+hsil_db <- 1.06*min(sd(debernardi$diagnosis),IQR(debernardi$diagnosis)/1.349)*length(debernardi$diagnosis)^(-1/5)
+
+plot(density(debernardi$LYVE1, kernel = 'gaussian'), col = 'blue')
+lines(density(debernardi$LYVE1, kernel = 'gaussian', bw = hsil_db), col = 'green')
+
+plot(density(debernardi$LYVE1, kernel = 'epanechnikov'), col = 'blue')
+lines(density(debernardi$LYVE1, kernel = 'epanechnikov', bw = hsil_db), col = 'green')
 
