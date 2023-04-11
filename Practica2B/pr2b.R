@@ -62,4 +62,97 @@ paste('Tiempo esperado de respuesta para el servidor B', 2*theta_B/3)
 
 # c)
 
+# i)
+
+unif_datos <- runif(10,0,1)
+
+theta_emv <- max(unif_datos)
+theta_emm <- 2*mean(unif_datos)
+
+verif_emv <- abs(theta_emv-1) < 0.01
+verif_emm <- abs(theta_emm-1) < 0.01
+
+pmom <- rep(0,1000)
+pemv <- rep(0,1000)
+for (i in 1:1000){
+  temp_datos <- runif(10,0,1)
+  pmom[i] <- 2*mean(temp_datos)
+  pemv[i] <- max(temp_datos)
+}
+
+pmom_bool <- abs(pmom-1) < 0.01
+pemv_bool <- abs(pemv-1) < 0.01
+
+prob_mom <- mean(pmom_bool)
+prob_emv <- mean(pemv_bool)
+
+prob_mom
+prob_emv
+# ii)
+
+# n = 100
+
+pmom2 <- rep(0,1000)
+pemv2 <- rep(0,1000)
+for (i in 1:1000){
+  temp_datos <- runif(100,0,1)
+  pmom2[i] <- 2*mean(temp_datos)
+  pemv2[i] <- max(temp_datos)
+}
+
+pmom_bool2 <- abs(pmom2-1) < 0.01
+pemv_bool2 <- abs(pemv2-1) < 0.01
+
+prob_mom2 <- mean(pmom_bool2)
+prob_emv2 <- mean(pemv_bool2)
+
+prob_mom2
+prob_emv2
+
+# n = 500
+
+pmom3 <- rep(0,1000)
+pemv3 <- rep(0,1000)
+for (i in 1:1000){
+  temp_datos <- runif(500,0,1)
+  pmom3[i] <- 2*mean(temp_datos)
+  pemv3[i] <- max(temp_datos)
+}
+
+pmom_bool3 <- abs(pmom3-1) < 0.01
+pemv_bool3 <- abs(pemv3-1) < 0.01
+
+prob_mom3 <- mean(pmom_bool3)
+prob_emv3 <- mean(pemv_bool3)
+
+prob_mom3
+prob_emv3
+
+# n = 1000
+
+pmom4 <- rep(0,1000)
+pemv4 <- rep(0,1000)
+for (i in 1:1000){
+  temp_datos <- runif(1000,0,1)
+  pmom4[i] <- 2*mean(temp_datos)
+  pemv4[i] <- max(temp_datos)
+}
+
+pmom_bool4 <- abs(pmom4-1) < 0.01
+pemv_bool4 <- abs(pemv4-1) < 0.01
+
+prob_mom4 <- mean(pmom_bool4)
+prob_emv4 <- mean(pemv_bool4)
+
+prob_mom4
+prob_emv4
+
+# analogo con n = 2000, 5000, 10000, 100000
+
+# A medida que aumenta n, la probabilidad es cada vez mejor (tiende a 1), pero el EMV posee una proba mayor,
+# i.e. el estimador de maxima verosimilitud es mejor, pues converge mas rapido al valor real
+
+# Ejercicio 5
+
+# Ejercicio 6
 
