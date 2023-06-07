@@ -9,9 +9,8 @@ beta0 <- mean(y) - cov(x,y)*mean(x)/var(x)
 beta1 <- cov(x,y)/var(x)
 
 plot(x,y)
-grilla <- seq(0,25,0.1)
-lines(grilla,beta0 + beta1*grilla, col = "red")
-points(x,xm %*% solve( t(xm)%*%xm ) %*% t(xm) %*% ym, col = "orange")
+lines(x,beta0 + beta1*x, col = "red")
+points(x, beta0 + beta1*x, col = "orange")
 
 p <- xm %*% solve( t(xm)%*%xm ) %*% t(xm)
 sigma2_estimado <- t(ym) %*% (diag(x=1, nrow = 50, ncol = 50) - p) %*% ym / (50-1)
